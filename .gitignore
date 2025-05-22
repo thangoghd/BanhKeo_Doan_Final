@@ -1,0 +1,31 @@
+# Build thư mục
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# IDE khác
+.idea/
+*.csproj.user
+
+# Tệp log và tạm thời
+*.log
+*.tmp
+
+# Tệp cấu hình nhạy cảm
+appsettings.json
+.env
+
+# Hệ điều hành
+Thumbs.db
+.DS_Store
+
+# Tệp nén và sao lưu
+*.zip
+*.bak
+
+# Tệp package
+packages/
