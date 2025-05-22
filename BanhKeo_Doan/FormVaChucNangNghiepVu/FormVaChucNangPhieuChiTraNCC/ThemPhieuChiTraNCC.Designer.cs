@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemPhieuChiTraNCC));
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.dtpNgayTra = new System.Windows.Forms.DateTimePicker();
+            this.txtDienGiai = new System.Windows.Forms.TextBox();
             this.Huy = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtNguoiNhan = new System.Windows.Forms.TextBox();
+            this.txtSoTien = new System.Windows.Forms.TextBox();
+            this.txtSoChungTu = new System.Windows.Forms.TextBox();
+            this.cbGiaoDich = new System.Windows.Forms.ComboBox();
+            this.cbHTTT = new System.Windows.Forms.ComboBox();
+            this.cbNCC = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -49,19 +49,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // dtpNgayTra
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(122, 83);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(252, 20);
-            this.dateTimePicker1.TabIndex = 249;
+            this.dtpNgayTra.Location = new System.Drawing.Point(122, 83);
+            this.dtpNgayTra.Name = "dtpNgayTra";
+            this.dtpNgayTra.Size = new System.Drawing.Size(252, 20);
+            this.dtpNgayTra.TabIndex = 249;
             // 
-            // textBox5
+            // txtDienGiai
             // 
-            this.textBox5.Location = new System.Drawing.Point(122, 183);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(252, 20);
-            this.textBox5.TabIndex = 248;
+            this.txtDienGiai.Location = new System.Drawing.Point(122, 183);
+            this.txtDienGiai.Name = "txtDienGiai";
+            this.txtDienGiai.Size = new System.Drawing.Size(252, 20);
+            this.txtDienGiai.TabIndex = 248;
             // 
             // Huy
             // 
@@ -81,50 +81,50 @@
             this.simpleButton1.TabIndex = 246;
             this.simpleButton1.Text = "Chấp nhận";
             // 
-            // textBox4
+            // txtNguoiNhan
             // 
-            this.textBox4.Location = new System.Drawing.Point(122, 216);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(252, 20);
-            this.textBox4.TabIndex = 245;
+            this.txtNguoiNhan.Location = new System.Drawing.Point(122, 216);
+            this.txtNguoiNhan.Name = "txtNguoiNhan";
+            this.txtNguoiNhan.Size = new System.Drawing.Size(252, 20);
+            this.txtNguoiNhan.TabIndex = 245;
             // 
-            // textBox3
+            // txtSoTien
             // 
-            this.textBox3.Location = new System.Drawing.Point(122, 113);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(252, 20);
-            this.textBox3.TabIndex = 244;
+            this.txtSoTien.Location = new System.Drawing.Point(122, 113);
+            this.txtSoTien.Name = "txtSoTien";
+            this.txtSoTien.Size = new System.Drawing.Size(252, 20);
+            this.txtSoTien.TabIndex = 244;
             // 
-            // textBox1
+            // txtSoChungTu
             // 
-            this.textBox1.Location = new System.Drawing.Point(122, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(252, 20);
-            this.textBox1.TabIndex = 243;
+            this.txtSoChungTu.Location = new System.Drawing.Point(122, 51);
+            this.txtSoChungTu.Name = "txtSoChungTu";
+            this.txtSoChungTu.Size = new System.Drawing.Size(252, 20);
+            this.txtSoChungTu.TabIndex = 243;
             // 
-            // comboBox4
+            // cbGiaoDich
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(122, 247);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(252, 21);
-            this.comboBox4.TabIndex = 242;
+            this.cbGiaoDich.FormattingEnabled = true;
+            this.cbGiaoDich.Location = new System.Drawing.Point(122, 247);
+            this.cbGiaoDich.Name = "cbGiaoDich";
+            this.cbGiaoDich.Size = new System.Drawing.Size(252, 21);
+            this.cbGiaoDich.TabIndex = 242;
             // 
-            // comboBox2
+            // cbHTTT
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(122, 146);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(252, 21);
-            this.comboBox2.TabIndex = 241;
+            this.cbHTTT.FormattingEnabled = true;
+            this.cbHTTT.Location = new System.Drawing.Point(122, 146);
+            this.cbHTTT.Name = "cbHTTT";
+            this.cbHTTT.Size = new System.Drawing.Size(252, 21);
+            this.cbHTTT.TabIndex = 241;
             // 
-            // comboBox1
+            // cbNCC
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(122, 18);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(252, 21);
-            this.comboBox1.TabIndex = 240;
+            this.cbNCC.FormattingEnabled = true;
+            this.cbNCC.Location = new System.Drawing.Point(122, 18);
+            this.cbNCC.Name = "cbNCC";
+            this.cbNCC.Size = new System.Drawing.Size(252, 21);
+            this.cbNCC.TabIndex = 240;
             // 
             // label7
             // 
@@ -203,16 +203,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(394, 358);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.dtpNgayTra);
+            this.Controls.Add(this.txtDienGiai);
             this.Controls.Add(this.Huy);
             this.Controls.Add(this.simpleButton1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtNguoiNhan);
+            this.Controls.Add(this.txtSoTien);
+            this.Controls.Add(this.txtSoChungTu);
+            this.Controls.Add(this.cbGiaoDich);
+            this.Controls.Add(this.cbHTTT);
+            this.Controls.Add(this.cbNCC);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
@@ -230,16 +230,16 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.DateTimePicker dtpNgayTra;
+        private System.Windows.Forms.TextBox txtDienGiai;
         private DevExpress.XtraEditors.SimpleButton Huy;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtNguoiNhan;
+        private System.Windows.Forms.TextBox txtSoTien;
+        private System.Windows.Forms.TextBox txtSoChungTu;
+        private System.Windows.Forms.ComboBox cbGiaoDich;
+        private System.Windows.Forms.ComboBox cbHTTT;
+        private System.Windows.Forms.ComboBox cbNCC;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
