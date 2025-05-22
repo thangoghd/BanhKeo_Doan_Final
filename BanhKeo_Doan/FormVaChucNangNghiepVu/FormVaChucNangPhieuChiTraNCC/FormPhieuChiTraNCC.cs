@@ -438,18 +438,6 @@ namespace BanhKeo_Doan.FormVaChucNangNghiepVu.FormVaChucNangPhieuChiTraNCC
                     signatureTable.AddCell(blankCell);
                 }
 
-                // Thêm tên người lập phiếu vào ô đầu tiên
-                PdfPCell nameCell = new PdfPCell(new Phrase(row["TenNhanVien"].ToString(), normalFont));
-                nameCell.Border = 0;
-                nameCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                signatureTable.AddCell(nameCell);
-
-                // Thêm tên người nhận vào ô thứ hai
-                PdfPCell receiverCell = new PdfPCell(new Phrase(row["NguoiNhan"].ToString(), normalFont));
-                receiverCell.Border = 0;
-                receiverCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                signatureTable.AddCell(receiverCell);
-
                 // Thêm các ô trống còn lại
                 for (int i = 0; i < 3; i++)
                 {
