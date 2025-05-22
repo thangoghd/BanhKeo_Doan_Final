@@ -91,6 +91,7 @@
             // 
             // btnInButton
             // 
+            //this.btnInButton.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnInButton.ImageOptions.SvgImage")));
             this.btnInButton.Location = new System.Drawing.Point(140, 71);
             this.btnInButton.Name = "btnInButton";
             this.btnInButton.Size = new System.Drawing.Size(113, 50);
@@ -99,7 +100,7 @@
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTimKiem.ImageOptions.SvgImage")));
+            //this.btnTimKiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTimKiem.ImageOptions.SvgImage")));
             this.btnTimKiem.Location = new System.Drawing.Point(6, 71);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(113, 50);

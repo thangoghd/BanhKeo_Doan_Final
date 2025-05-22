@@ -33,16 +33,16 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSuaSoThu = new DevExpress.XtraEditors.SimpleButton();
             this.btnDong = new DevExpress.XtraEditors.SimpleButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbLoaiThu = new System.Windows.Forms.ComboBox();
             this.btnInSoThu = new DevExpress.XtraEditors.SimpleButton();
-            this.btnXoaSoThu = new DevExpress.XtraEditors.SimpleButton();
+            this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnThemSoThu = new DevExpress.XtraEditors.SimpleButton();
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxNgay = new System.Windows.Forms.CheckBox();
+            this.checkBoxLoaiThu = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -60,20 +60,20 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btnSuaSoThu);
             this.groupBox1.Controls.Add(this.btnDong);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbLoaiThu);
             this.groupBox1.Controls.Add(this.btnInSoThu);
-            this.groupBox1.Controls.Add(this.btnXoaSoThu);
+            this.groupBox1.Controls.Add(this.btnXoa);
             this.groupBox1.Controls.Add(this.btnThemSoThu);
             this.groupBox1.Controls.Add(this.btnTimKiem);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtpTo);
+            this.groupBox1.Controls.Add(this.dtpFrom);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.checkBoxNgay);
+            this.groupBox1.Controls.Add(this.checkBoxLoaiThu);
             this.groupBox1.Location = new System.Drawing.Point(12, 41);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(830, 129);
@@ -93,40 +93,39 @@
             // 
             // btnDong
             // 
-            this.btnDong.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
+            this.btnDong.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDong.ImageOptions.SvgImage")));
             this.btnDong.Location = new System.Drawing.Point(601, 71);
             this.btnDong.Name = "simpleButton4";
             this.btnDong.Size = new System.Drawing.Size(113, 50);
             this.btnDong.TabIndex = 11;
             this.btnDong.Text = "Đóng";
             // 
-            // comboBox1
+            // cbLoaiThu
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(103, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(182, 21);
-            this.comboBox1.TabIndex = 10;
+            this.cbLoaiThu.FormattingEnabled = true;
+            this.cbLoaiThu.Location = new System.Drawing.Point(103, 30);
+            this.cbLoaiThu.Name = "cbLoaiThu";
+            this.cbLoaiThu.Size = new System.Drawing.Size(182, 21);
+            this.cbLoaiThu.TabIndex = 10;
             // 
             // btnInSoThu
             // 
-            this.btnInSoThu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Huy.ImageOptions.SvgImage")));
+            this.btnInSoThu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnInSoThu.ImageOptions.SvgImage")));
             this.btnInSoThu.Location = new System.Drawing.Point(482, 71);
-            this.btnInSoThu.Name = "Huy";
+            this.btnInSoThu.Name = "btnInSoThu";
             this.btnInSoThu.Size = new System.Drawing.Size(113, 50);
             this.btnInSoThu.TabIndex = 9;
             this.btnInSoThu.Text = "In";
             this.btnInSoThu.Click += new System.EventHandler(this.btnInSoThu_Click);
             // 
-            // btnXoaSoThu
+            // btnXoa
             // 
-            this.btnXoaSoThu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnXoaSoThu.ImageOptions.SvgImage")));
-            this.btnXoaSoThu.Location = new System.Drawing.Point(363, 71);
-            this.btnXoaSoThu.Name = "simpleButton3";
-            this.btnXoaSoThu.Size = new System.Drawing.Size(113, 50);
-            this.btnXoaSoThu.TabIndex = 8;
-            this.btnXoaSoThu.Text = "Xóa";
-            this.btnXoaSoThu.Click += new System.EventHandler(this.btnXoaSoThu_Click);
+            this.btnXoa.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnXoa.ImageOptions.SvgImage")));
+            this.btnXoa.Location = new System.Drawing.Point(363, 71);
+            this.btnXoa.Name = "simpleButton3";
+            this.btnXoa.Size = new System.Drawing.Size(113, 50);
+            this.btnXoa.TabIndex = 8;
+            this.btnXoa.Text = "Xóa";
             // 
             // btnThemSoThu
             // 
@@ -140,26 +139,27 @@
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.btnTimKiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTimKiem.ImageOptions.SvgImage")));
             this.btnTimKiem.Location = new System.Drawing.Point(6, 71);
             this.btnTimKiem.Name = "simpleButton1";
             this.btnTimKiem.Size = new System.Drawing.Size(113, 50);
             this.btnTimKiem.TabIndex = 6;
             this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
-            // dateTimePicker2
+            // dtpTo
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(626, 30);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 5;
+            this.dtpTo.Location = new System.Drawing.Point(626, 30);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(200, 20);
+            this.dtpTo.TabIndex = 5;
             // 
-            // dateTimePicker1
+            // dtpFrom
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(387, 30);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dtpFrom.Location = new System.Drawing.Point(387, 30);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(200, 20);
+            this.dtpFrom.TabIndex = 4;
             // 
             // label2
             // 
@@ -170,30 +170,32 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Đến";
             // 
-            // checkBox2
+            // checkBoxNgay
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(301, 33);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(77, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Theo ngày";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBoxNgay.AutoSize = true;
+            this.checkBoxNgay.Location = new System.Drawing.Point(301, 33);
+            this.checkBoxNgay.Name = "checkBoxNgay";
+            this.checkBoxNgay.Size = new System.Drawing.Size(77, 17);
+            this.checkBoxNgay.TabIndex = 1;
+            this.checkBoxNgay.Text = "Theo ngày";
+            this.checkBoxNgay.UseVisualStyleBackColor = true;
+            this.checkBoxNgay.CheckedChanged += new System.EventHandler(this.checkBoxNgay_CheckedChanged);
             // 
-            // checkBox1
+            // checkBoxLoaiThu
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(9, 33);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(88, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Theo loại thu";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxLoaiThu.AutoSize = true;
+            this.checkBoxLoaiThu.Location = new System.Drawing.Point(9, 33);
+            this.checkBoxLoaiThu.Name = "checkBoxLoaiThu";
+            this.checkBoxLoaiThu.Size = new System.Drawing.Size(88, 17);
+            this.checkBoxLoaiThu.TabIndex = 0;
+            this.checkBoxLoaiThu.Text = "Theo loại thu";
+            this.checkBoxLoaiThu.UseVisualStyleBackColor = true;
+            this.checkBoxLoaiThu.CheckedChanged += new System.EventHandler(this.checkBoxLoaiThu_CheckedChanged);
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 176);
@@ -226,16 +228,16 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.SimpleButton btnSuaSoThu;
         private DevExpress.XtraEditors.SimpleButton btnDong;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbLoaiThu;
         private DevExpress.XtraEditors.SimpleButton btnInSoThu;
-        private DevExpress.XtraEditors.SimpleButton btnXoaSoThu;
+        private DevExpress.XtraEditors.SimpleButton btnXoa;
         private DevExpress.XtraEditors.SimpleButton btnThemSoThu;
         private DevExpress.XtraEditors.SimpleButton btnTimKiem;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpTo;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxNgay;
+        private System.Windows.Forms.CheckBox checkBoxLoaiThu;
         public System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -388,6 +388,18 @@
     <Compile Include="FormBaoCaoThongKe\CongNo\FormCongNoNCC.Designer.cs">
       <DependentUpon>FormCongNoNCC.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBaoCaoThongKe\ThuChi\FormBaoCaoSoChi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBaoCaoThongKe\ThuChi\FormBaoCaoSoChi.Designer.cs">
+      <DependentUpon>FormBaoCaoSoChi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBaoCaoThongKe\ThuChi\FormBaoCaoSoThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBaoCaoThongKe\ThuChi\FormBaoCaoSoThu.Designer.cs">
+      <DependentUpon>FormBaoCaoSoThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDanhMuc\FormLoaiChi.cs">
       <SubType>UserControl</SubType>
     </Compile>

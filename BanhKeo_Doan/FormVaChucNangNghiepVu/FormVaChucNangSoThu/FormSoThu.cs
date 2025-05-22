@@ -33,6 +33,16 @@ namespace BanhKeo_Doan.FormVaChucNangNghiepVu.FormVaChucNangSoThu
 
             // Load dữ liệu Loại Thu vào comboBox1 để phục vụ tìm kiếm
             LoadLoaiThuComboBox();
+
+
+            // Thiết lập trạng thái ban đầu cho các control tìm kiếm
+            cbLoaiThu.Enabled = false;
+            dtpFrom.Enabled = false;
+            dtpTo.Enabled = false;
+
+            // Thiết lập ngày mặc định cho dateTimePicker
+            dtpFrom.Value = DateTime.Now.AddDays(-30); // Mặc định 30 ngày trước
+            dtpTo.Value = DateTime.Now;
         }
 
 
@@ -78,9 +88,9 @@ namespace BanhKeo_Doan.FormVaChucNangNghiepVu.FormVaChucNangSoThu
             row["TenLoaiThu"] = "Tất cả";
             dt.Rows.InsertAt(row, 0);
 
-            comboBox1.DataSource = dt;
-            comboBox1.DisplayMember = "TenLoaiThu";
-            comboBox1.ValueMember = "MaLoaiThu";
+            cbLoaiThu.DataSource = dt;
+            cbLoaiThu.DisplayMember = "TenLoaiThu";
+            cbLoaiThu.ValueMember = "MaLoaiThu";
         }
 
         private void btnThemSoThu_Click(object sender, EventArgs e)
@@ -153,6 +163,61 @@ namespace BanhKeo_Doan.FormVaChucNangNghiepVu.FormVaChucNangSoThu
         public void ReloadSoThuData()
         {
             LoadSoThuData();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string query = @"SELECT st.MaSoThu, st.NgayLap, lt.TenLoaiThu, st.SoTien, 
+                           st.NguoiNop, st.DienGiai, st.SoChungTu, st.HTTT 
+                           FROM SoThu st 
+                           LEFT JOIN LoaiThu lt ON st.MaLoaiThu = lt.MaLoaiThu
+                           WHERE 1=1";
+
+            //Nếu tìm theo loại thu
+            if (checkBoxLoaiThu.Checked && cbLoaiThu.SelectedIndex > 0) // Chỉ áp dụng khi không phải "Tất cả"
+            {
+                query += " AND st.MaLoaiThu = " + cbLoaiThu.SelectedValue;
+            }
+
+            //Nếu tìm theo ngày
+            if (checkBoxNgay.Checked)
+            {
+                DateTime tuNgay = dtpFrom.Value.Date;
+                DateTime denNgay = dtpTo.Value.Date.AddDays(1).AddSeconds(-1);
+                query += " AND st.NgayLap BETWEEN '" + tuNgay.ToString("yyyy-MM-dd") + "' AND '" + denNgay.ToString("yyyy-MM-dd") + "'";
+            }
+
+            //Thực hiện tìm kiếm
+            DataTable dt = ketnoiCSDL.GetData(query);
+            dataGridView1.DataSource = dt;
+
+            //Định dạng DataGridView
+            FormatDataGridView();
+
+            //Hiển thị thông báo kết quả
+            int rowCount = dataGridView1.Rows.Count;
+            MessageBox.Show($"Tìm thấy {rowCount} kết quả.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        // Phương thức định dạng DataGridView
+        private void FormatDataGridView()
+        {
+            // Đặt tiêu đề cột
+            dataGridView1.Columns["MaSoThu"].HeaderText = "Mã sổ thu";
+            dataGridView1.Columns["NgayLap"].HeaderText = "Ngày lập";
+            dataGridView1.Columns["TenLoaiThu"].HeaderText = "Loại thu";
+            dataGridView1.Columns["SoTien"].HeaderText = "Số tiền";
+            dataGridView1.Columns["NguoiNop"].HeaderText = "Người nộp";
+            dataGridView1.Columns["DienGiai"].HeaderText = "Diễn giải";
+            dataGridView1.Columns["SoChungTu"].HeaderText = "Số chứng từ";
+            dataGridView1.Columns["HTTT"].HeaderText = "Hình thức thanh toán";
+
+            // Định dạng hiển thị
+            dataGridView1.Columns["NgayLap"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dataGridView1.Columns["SoTien"].DefaultCellStyle.Format = "N0";
+
+            // Tự động điều chỉnh kích thước cột
+            dataGridView1.AutoResizeColumns();
         }
 
         // Sự kiện khi nhấn nút In
@@ -325,6 +390,32 @@ namespace BanhKeo_Doan.FormVaChucNangNghiepVu.FormVaChucNangSoThu
             cell2.Border = 0;
             cell2.Padding = 5;
             table.AddCell(cell2);
+        }
+
+        private void checkBoxLoaiThu_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxLoaiThu.Checked)
+            {
+                cbLoaiThu.Enabled = true;
+            }
+            else
+            {
+                cbLoaiThu.Enabled = false;
+            }
+        }
+
+        private void checkBoxNgay_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxNgay.Checked)
+            {
+                dtpFrom.Enabled = true;
+                dtpTo.Enabled = true;
+            }
+            else
+            {
+                dtpFrom.Enabled = false;
+                dtpTo.Enabled = false;
+            }
         }
     }
 }
