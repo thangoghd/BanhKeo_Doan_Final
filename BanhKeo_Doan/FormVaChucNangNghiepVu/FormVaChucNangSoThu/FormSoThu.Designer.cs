@@ -32,12 +32,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSuaSoThu = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDong = new DevExpress.XtraEditors.SimpleButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.Huy = new DevExpress.XtraEditors.SimpleButton();
+            this.btnInSoThu = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoaSoThu = new DevExpress.XtraEditors.SimpleButton();
             this.btnThemSoThu = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,12 +63,12 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btnSuaSoThu);
-            this.groupBox1.Controls.Add(this.simpleButton4);
+            this.groupBox1.Controls.Add(this.btnDong);
             this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.Huy);
+            this.groupBox1.Controls.Add(this.btnInSoThu);
             this.groupBox1.Controls.Add(this.btnXoaSoThu);
             this.groupBox1.Controls.Add(this.btnThemSoThu);
-            this.groupBox1.Controls.Add(this.simpleButton1);
+            this.groupBox1.Controls.Add(this.btnTimKiem);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.label2);
@@ -91,14 +91,14 @@
             this.btnSuaSoThu.Text = "Sửa";
             this.btnSuaSoThu.Click += new System.EventHandler(this.btnSuaSoThu_Click);
             // 
-            // simpleButton4
+            // btnDong
             // 
-            this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.Location = new System.Drawing.Point(601, 71);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(113, 50);
-            this.simpleButton4.TabIndex = 11;
-            this.simpleButton4.Text = "Đóng";
+            this.btnDong.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
+            this.btnDong.Location = new System.Drawing.Point(601, 71);
+            this.btnDong.Name = "simpleButton4";
+            this.btnDong.Size = new System.Drawing.Size(113, 50);
+            this.btnDong.TabIndex = 11;
+            this.btnDong.Text = "Đóng";
             // 
             // comboBox1
             // 
@@ -108,18 +108,19 @@
             this.comboBox1.Size = new System.Drawing.Size(182, 21);
             this.comboBox1.TabIndex = 10;
             // 
-            // Huy
+            // btnInSoThu
             // 
-            this.Huy.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Huy.ImageOptions.SvgImage")));
-            this.Huy.Location = new System.Drawing.Point(482, 71);
-            this.Huy.Name = "Huy";
-            this.Huy.Size = new System.Drawing.Size(113, 50);
-            this.Huy.TabIndex = 9;
-            this.Huy.Text = "In";
+            this.btnInSoThu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Huy.ImageOptions.SvgImage")));
+            this.btnInSoThu.Location = new System.Drawing.Point(482, 71);
+            this.btnInSoThu.Name = "Huy";
+            this.btnInSoThu.Size = new System.Drawing.Size(113, 50);
+            this.btnInSoThu.TabIndex = 9;
+            this.btnInSoThu.Text = "In";
+            this.btnInSoThu.Click += new System.EventHandler(this.btnInSoThu_Click);
             // 
             // btnXoaSoThu
             // 
-            this.btnXoaSoThu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
+            this.btnXoaSoThu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnXoaSoThu.ImageOptions.SvgImage")));
             this.btnXoaSoThu.Location = new System.Drawing.Point(363, 71);
             this.btnXoaSoThu.Name = "simpleButton3";
             this.btnXoaSoThu.Size = new System.Drawing.Size(113, 50);
@@ -137,14 +138,14 @@
             this.btnThemSoThu.Text = "Thêm";
             this.btnThemSoThu.Click += new System.EventHandler(this.btnThemSoThu_Click);
             // 
-            // simpleButton1
+            // btnTimKiem
             // 
-            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(6, 71);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(113, 50);
-            this.simpleButton1.TabIndex = 6;
-            this.simpleButton1.Text = "Tìm kiếm";
+            this.btnTimKiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.btnTimKiem.Location = new System.Drawing.Point(6, 71);
+            this.btnTimKiem.Name = "simpleButton1";
+            this.btnTimKiem.Size = new System.Drawing.Size(113, 50);
+            this.btnTimKiem.TabIndex = 6;
+            this.btnTimKiem.Text = "Tìm kiếm";
             // 
             // dateTimePicker2
             // 
@@ -224,12 +225,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.SimpleButton btnSuaSoThu;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.SimpleButton btnDong;
         private System.Windows.Forms.ComboBox comboBox1;
-        private DevExpress.XtraEditors.SimpleButton Huy;
+        private DevExpress.XtraEditors.SimpleButton btnInSoThu;
         private DevExpress.XtraEditors.SimpleButton btnXoaSoThu;
         private DevExpress.XtraEditors.SimpleButton btnThemSoThu;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnTimKiem;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label2;
