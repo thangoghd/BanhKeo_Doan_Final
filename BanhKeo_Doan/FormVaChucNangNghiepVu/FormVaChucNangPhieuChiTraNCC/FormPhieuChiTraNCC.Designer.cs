@@ -116,6 +116,7 @@
             this.btnInButton.Size = new System.Drawing.Size(113, 50);
             this.btnInButton.TabIndex = 9;
             this.btnInButton.Text = "In";
+            this.btnInButton.Click += new System.EventHandler(this.btnInButton_Click);
             // 
             // simpleButton3
             // 
