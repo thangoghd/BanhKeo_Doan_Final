@@ -1,0 +1,76 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using BanhKeo_Doan.Chuc_nang_danh_muc.Danh_muc_DVT;
+
+namespace BanhKeo_Doan.Chuc_nang_danh_muc
+{
+    public partial class SuaDVT : Form
+    {
+        private string madvt;
+        private string tendvt;
+        public SuaDVT(string madvt, string tendvt)
+        {
+            InitializeComponent();
+            this.madvt = madvt;
+            this.tendvt = tendvt;
+        }
+
+        private void Huy_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private bool checkloi()
+        {
+            if (string.IsNullOrWhiteSpace(txtTendvt.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK);
+                txtTendvt.Focus();
+                return false;
+            }
+
+            if (!Regex.IsMatch(txtTendvt.Text, @"^[\p{L}\s]+$"))
+            {
+                MessageBox.Show("Tên chỉ được chứa chữ cái và khoảng trắng!", "Lỗi nhập liệu", MessageBoxButtons.OK);
+                txtTendvt.Focus();
+                return false;
+            }
+            return true;
+        }
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            if (!checkloi())
+                return;
+
+            string query = "UPDATE DonViTinh SET TenDVT = N'" + txtTendvt.Text + "' WHERE MaDVT = '" + txtMadvt.Text + "'";
+
+            try
+            {
+                KetNoiCSDL ketnoiCSDL = new KetNoiCSDL();
+                ketnoiCSDL.ExecuteNonQuery(query);
+                MessageBox.Show("Sửa đơn vị tính thành công!", "Thông báo", MessageBoxButtons.OK);
+                ((RibbonForm1)Application.OpenForms["RibbonForm1"]).LoadDataGridView("SELECT * FROM DonViTinh");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sửa đơn vị tính thất bại!", "Thông báo", MessageBoxButtons.OK);
+            }
+        }
+
+        private void SuaDVT_Load(object sender, EventArgs e)
+        {
+            txtMadvt.Text = madvt;
+            txtTendvt.Text = tendvt;
+        }
+    }
+}

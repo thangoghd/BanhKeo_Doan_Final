@@ -1,0 +1,119 @@
+﻿namespace BanhKeo_Doan.Chuc_nang_danh_muc.Danh_muc_Loai_chi
+{
+    partial class ThemLoaiChi
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemLoaiChi));
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtTenlc = new System.Windows.Forms.TextBox();
+            this.Huy = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(38, 85);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 124;
+            this.label3.Text = "Loại chi";
+            // 
+            // txtTenlc
+            // 
+            this.txtTenlc.Location = new System.Drawing.Point(143, 82);
+            this.txtTenlc.Name = "txtTenlc";
+            this.txtTenlc.Size = new System.Drawing.Size(153, 20);
+            this.txtTenlc.TabIndex = 123;
+            // 
+            // Huy
+            // 
+            this.Huy.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Huy.ImageOptions.SvgImage")));
+            this.Huy.Location = new System.Drawing.Point(196, 130);
+            this.Huy.Name = "Huy";
+            this.Huy.Size = new System.Drawing.Size(100, 45);
+            this.Huy.TabIndex = 122;
+            this.Huy.Text = "Hủy bỏ";
+            this.Huy.Click += new System.EventHandler(this.Huy_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.simpleButton1.Location = new System.Drawing.Point(41, 130);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(100, 45);
+            this.simpleButton1.TabIndex = 121;
+            this.simpleButton1.Text = "Chấp nhận";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(38, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 120;
+            this.label2.Text = "Mã loại chi";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(143, 40);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(153, 20);
+            this.textBox2.TabIndex = 119;
+            // 
+            // ThemLoaiChi
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(337, 225);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtTenlc);
+            this.Controls.Add(this.Huy);
+            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox2);
+            this.Name = "ThemLoaiChi";
+            this.Text = "ThemLoaiChi";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtTenlc;
+        private DevExpress.XtraEditors.SimpleButton Huy;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox2;
+    }
+}
