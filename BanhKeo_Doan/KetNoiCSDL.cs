@@ -12,13 +12,20 @@ namespace BanhKeo_Doan
     {
         private static string connectionString = "Server=localhost\\MSSQLSERVER01;Database=QuanLyBanBanhKeo_DoAn;Trusted_Connection=True;";
 
-        public void ExecuteNonQuery(string query)
+        public int ExecuteNonQuery(string query)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand(query, conn);
-                conn.Open();
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    return cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Lỗi thực thi: " + ex.Message);
+                }
             }
         }
 

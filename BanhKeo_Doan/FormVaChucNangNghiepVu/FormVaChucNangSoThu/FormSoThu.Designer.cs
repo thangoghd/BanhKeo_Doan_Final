@@ -35,7 +35,7 @@
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.Huy = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnXoaSoThu = new DevExpress.XtraEditors.SimpleButton();
             this.btnThemSoThu = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -66,7 +66,7 @@
             this.groupBox1.Controls.Add(this.simpleButton4);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.Huy);
-            this.groupBox1.Controls.Add(this.simpleButton3);
+            this.groupBox1.Controls.Add(this.btnXoaSoThu);
             this.groupBox1.Controls.Add(this.btnThemSoThu);
             this.groupBox1.Controls.Add(this.simpleButton1);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
@@ -117,14 +117,15 @@
             this.Huy.TabIndex = 9;
             this.Huy.Text = "In";
             // 
-            // simpleButton3
+            // btnXoaSoThu
             // 
-            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(363, 71);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(113, 50);
-            this.simpleButton3.TabIndex = 8;
-            this.simpleButton3.Text = "Xóa";
+            this.btnXoaSoThu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
+            this.btnXoaSoThu.Location = new System.Drawing.Point(363, 71);
+            this.btnXoaSoThu.Name = "simpleButton3";
+            this.btnXoaSoThu.Size = new System.Drawing.Size(113, 50);
+            this.btnXoaSoThu.TabIndex = 8;
+            this.btnXoaSoThu.Text = "Xóa";
+            this.btnXoaSoThu.Click += new System.EventHandler(this.btnXoaSoThu_Click);
             // 
             // btnThemSoThu
             // 
@@ -226,7 +227,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private System.Windows.Forms.ComboBox comboBox1;
         private DevExpress.XtraEditors.SimpleButton Huy;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton btnXoaSoThu;
         private DevExpress.XtraEditors.SimpleButton btnThemSoThu;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
@@ -234,6 +235,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dataGridView1;
     }
 }
