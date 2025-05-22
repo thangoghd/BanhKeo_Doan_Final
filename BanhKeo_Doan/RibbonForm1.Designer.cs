@@ -447,6 +447,8 @@
             this.barButtonItem41.Caption = "Công nợ khách hàng";
             this.barButtonItem41.Id = 48;
             this.barButtonItem41.Name = "barButtonItem41";
+            this.barButtonItem41.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem41_ItemClick);
+
             // 
             // barButtonItem42
             // 
@@ -640,6 +642,7 @@
             this.ribbonPageGroup14.ItemLinks.Add(this.barButtonItem41);
             this.ribbonPageGroup14.Name = "ribbonPageGroup14";
             this.ribbonPageGroup14.Text = "Công nợ";
+            this.barButtonItem40.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem40_ItemClick);
             // 
             // ribbonPageGroup15
             // 
