@@ -27,49 +27,68 @@ namespace BanhKeo_Doan
 
         private void btnThemLoaiThu_Click(object sender, EventArgs e)
         {
-            ThemLoaiThu themLoaiThu = new ThemLoaiThu();
-            themLoaiThu.Show();
+            using (var dlg = new ThemLoaiThu())
+            {
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    // tìm RibbonForm chính và gọi lại code load
+                    var rf = this.FindForm() as RibbonForm1;
+                    rf?.ReloadLoaiThuGrid();
+                }
+            }
         }
 
         private void btnSuaLoaiThu_Click(object sender, EventArgs e)
         {
-            RibbonForm1 mainForm = (RibbonForm1)Application.OpenForms["RibbonForm1"];
-            DataGridViewRow selectedRow = mainForm.GetSelectedRow();
+            // Tìm form cha (RibbonForm1)
+            var rf = this.FindForm() as RibbonForm1;
+            if (rf == null || rf.dataGridView1.CurrentRow == null) return;
 
-            string malt = selectedRow.Cells["MaLoaiThu"].Value.ToString();
-            string tenlt = selectedRow.Cells["TenLoaiThu"].Value.ToString();
-
-            SuaLoaiThu suaLoaiThu = new SuaLoaiThu(malt, tenlt);
-            suaLoaiThu.Show();
-        }
-
-        private void simpleButton3_Click(object sender, EventArgs e)
-        {
-            RibbonForm1 mainForm = (RibbonForm1)Application.OpenForms["RibbonForm1"];
-            DataGridViewRow selectedRow = mainForm.GetSelectedRow();
-
-            string malt = selectedRow.Cells["MaLoaiThu"].Value.ToString();
-
-
-            if (MessageBox.Show("Bạn có chắc muốn xóa loại thu này không!", "Xác nhận xóa", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
-                string query = "DELETE FROM LoaiThu WHERE MaLoaiThu = '" + malt + "'";
+                // Lấy dữ liệu từ dòng được chọn
+                int ma = Convert.ToInt32(rf.dataGridView1.CurrentRow.Cells["MaLoaiThu"].Value);
+                string ten = rf.dataGridView1.CurrentRow.Cells["TenLoaiThu"].Value.ToString();
 
-                try
+                // Hiển thị form sửa
+                using (var dlg = new SuaLoaiThu(ma, ten))
                 {
-                    KetNoiCSDL ketnoiCSDL = new KetNoiCSDL();
-                    ketnoiCSDL.ExecuteNonQuery(query);
-                    MessageBox.Show("Xóa loại thu thành công!", "Thông báo", MessageBoxButtons.OK);
-                    ((RibbonForm1)Application.OpenForms["RibbonForm1"]).LoadDataGridView("SELECT * FROM LoaiThu");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Xóa loại thu thất bại!", "Thông báo", MessageBoxButtons.OK);
+                    if (dlg.ShowDialog() == DialogResult.OK)
+                    {
+                        // Nếu sửa thành công, reload grid
+                        rf.ReloadLoaiThuGrid();
+                    }
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Bạn chưa chọn dòng nào để xóa!");
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnXoaLoaiThu_Click(object sender, EventArgs e)
+        {
+            var rf = this.FindForm() as RibbonForm1;
+            if (rf == null || rf.dataGridView1.CurrentRow == null) return;
+
+            try
+            {
+                int ma = Convert.ToInt32(rf.dataGridView1.CurrentRow.Cells["MaLoaiThu"].Value);
+                if (MessageBox.Show(
+                        $"Bạn có chắc muốn xóa loại thu mã {ma}?",
+                        "Xác nhận",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question)
+                    == DialogResult.Yes)
+                {
+                    string query = $"DELETE FROM LoaiThu WHERE MaLoaiThu = {ma}";
+                    new KetNoiCSDL().GetData(query);
+                    rf.ReloadLoaiThuGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

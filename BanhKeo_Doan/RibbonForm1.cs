@@ -329,6 +329,17 @@ namespace BanhKeo_Doan
             dataGridView1.Columns["TenLoaiThu"].HeaderText = "Tên loại thu";
         }
 
+
+        // Tải lại Dữ liệu Loại thu
+        public void ReloadLoaiThuGrid()
+        {
+            string query = "SELECT * FROM LoaiThu";
+            var dt = ketnoiCSDL.GetData(query);
+            dataGridView1.DataSource = dt;
+            dataGridView1.Columns["MaLoaiThu"].HeaderText = "Mã loại thu";
+            dataGridView1.Columns["TenLoaiThu"].HeaderText = "Tên loại thu";
+        }
+
         private void BtnLoaiChi_ItemClick(object sender, ItemClickEventArgs e)
         {
             LoadUserControl(new FormLoaiChi());

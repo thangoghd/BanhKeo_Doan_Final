@@ -8,18 +8,21 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BanhKeo_Doan.Chuc_nang_danh_muc.Danh_muc_Loai_thu
 {
     public partial class SuaLoaiThu : Form
     {
-        private string malt;
-        private string tenlt;
-        public SuaLoaiThu(string malt, string tenlt)
+        private int maLoaiThu;
+
+        public SuaLoaiThu(int ma, string ten)
         {
             InitializeComponent();
-            this.malt = malt;
-            this.tenlt = tenlt;
+            this.maLoaiThu = ma;
+            txtMalt.Text = ma.ToString();
+            txtTenlt.Text = ten;
+            txtMalt.ReadOnly = true;
         }
 
         private void Huy_Click(object sender, EventArgs e)
@@ -27,48 +30,26 @@ namespace BanhKeo_Doan.Chuc_nang_danh_muc.Danh_muc_Loai_thu
             this.Close();
         }
 
-        private bool checkloi()
+        private void Sua_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtTenlt.Text))
-            {
-                MessageBox.Show("Vui lòng nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK);
-                txtTenlt.Focus();
-                return false;
-            }
-
-            if (!Regex.IsMatch(txtTenlt.Text, @"^[\p{L}\s]+$"))
-            {
-                MessageBox.Show("Tên chỉ được chứa chữ cái và khoảng trắng!", "Lỗi nhập liệu", MessageBoxButtons.OK);
-                txtTenlt.Focus();
-                return false;
-            }
-            return true;
-        }
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            if (!checkloi())
-                return;
-
-            string query = "UPDATE LoaiThu SET TenLoaiThu = N'" + txtTenlt.Text + "' WHERE MaLoaiThu = '" + txtMalt.Text + "'";
-
             try
             {
-                KetNoiCSDL ketnoiCSDL = new KetNoiCSDL();
-                ketnoiCSDL.ExecuteNonQuery(query);
-                MessageBox.Show("Sửa loại thu thành công!", "Thông báo", MessageBoxButtons.OK);
-                ((RibbonForm1)Application.OpenForms["RibbonForm1"]).LoadDataGridView("SELECT * FROM LoaiThu");
+                string ten = txtTenlt.Text;
+                if (string.IsNullOrWhiteSpace(ten))
+                {
+                    MessageBox.Show("Tên loại thu không được bỏ trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                string query = $"UPDATE LoaiThu SET TenLoaiThu = N'{ten}' WHERE MaLoaiThu = {maLoaiThu}";
+                new KetNoiCSDL().GetData(query);
+                MessageBox.Show("Cập nhật loại thu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Sửa loại thu thất bại!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi cập nhật loại thu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void SuaLoaiThu_Load(object sender, EventArgs e)
-        {
-            txtMalt.Text = malt;
-            txtTenlt.Text = tenlt;
         }
     }
 }

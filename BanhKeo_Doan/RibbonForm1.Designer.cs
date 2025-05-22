@@ -790,7 +790,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem47;
         private DevExpress.XtraBars.BarButtonItem barButtonItem48;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dataGridView1;
         private DevExpress.XtraEditors.PanelControl pnlContent;
         private DevExpress.XtraBars.BarButtonItem barButtonItem10;
         private System.Windows.Forms.Label label1;

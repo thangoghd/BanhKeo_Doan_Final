@@ -71,7 +71,7 @@
             this.simpleButton1.Size = new System.Drawing.Size(100, 45);
             this.simpleButton1.TabIndex = 133;
             this.simpleButton1.Text = "Chấp nhận";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.simpleButton1.Click += new System.EventHandler(this.Sua_Click);
             // 
             // label2
             // 
@@ -103,7 +103,6 @@
             this.Controls.Add(this.txtMalt);
             this.Name = "SuaLoaiThu";
             this.Text = "SuaLoaiThu";
-            this.Load += new System.EventHandler(this.SuaLoaiThu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

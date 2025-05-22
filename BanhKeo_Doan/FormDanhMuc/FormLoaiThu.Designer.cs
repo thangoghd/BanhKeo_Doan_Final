@@ -43,7 +43,7 @@
             this.simpleButton3.Size = new System.Drawing.Size(60, 36);
             this.simpleButton3.TabIndex = 23;
             this.simpleButton3.Text = "Xóa";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            this.simpleButton3.Click += new System.EventHandler(this.btnXoaLoaiThu_Click);
             // 
             // btnSuaLoaiThu
             // 
