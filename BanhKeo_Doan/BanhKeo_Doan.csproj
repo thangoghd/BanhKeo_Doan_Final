@@ -369,6 +369,7 @@
     <Compile Include="Chuc nang nguoi dung\ThemNguoiDung.Designer.cs">
       <DependentUpon>ThemNguoiDung.cs</DependentUpon>
     </Compile>
+    <Compile Include="Constants.cs" />
     <Compile Include="DocTienBangChu.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
