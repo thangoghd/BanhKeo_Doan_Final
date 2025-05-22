@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
+using System.Globalization;
 using BanhKeo_Doan;
+using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Font = iTextSharp.text.Font;
@@ -18,6 +19,7 @@ namespace BanhKeo_Doan.FormVaChucNangNghiepVu.FormVaChucNangPhieuChiTraNCC
     public partial class FormPhieuChiTraNCC : Form
     {
         private KetNoiCSDL db;
+
         DocTienBangChu reader = new DocTienBangChu();
 
         public FormPhieuChiTraNCC()
@@ -38,6 +40,9 @@ namespace BanhKeo_Doan.FormVaChucNangNghiepVu.FormVaChucNangPhieuChiTraNCC
             // Đăng ký sự kiện cho các checkbox
             checkBoxNCC.CheckedChanged += checkBoxNCC_CheckedChanged;
             checkBoxDate.CheckedChanged += checkBoxDate_CheckedChanged;
+
+            // Đăng ký sự kiện cho nút In
+            btnInButton.Click += btnInButton_Click;
 
             // Thiết lập trạng thái ban đầu cho các điều khiển
             cbNCC.Enabled = checkBoxNCC.Checked;
@@ -338,22 +343,33 @@ namespace BanhKeo_Doan.FormVaChucNangNghiepVu.FormVaChucNangPhieuChiTraNCC
                 // Tạo font Unicode để hỗ trợ tiếng Việt font Times New Roman
                 BaseFont baseFont = BaseFont.CreateFont("C:\\Windows\\Fonts\\times.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
                 Font normalFont = new Font(baseFont, 12);
+                Font italicFont = new Font(baseFont, 10, 2);
                 Font boldFont = new Font(baseFont, 12, 1); // 1 = Font.BOLD
                 Font titleFont = new Font(baseFont, 18, 1); // 1 = Font.BOLD
                 Font headerFont = new Font(baseFont, 14, 1); // 1 = Font.BOLD
                 Font smallFont = new Font(baseFont, 10);
 
-                // Tạo bảng cho header với 2 cột
-                PdfPTable headerTable = new PdfPTable(2);
+                // Tạo bảng cho header với 3 cột
+                PdfPTable headerTable = new PdfPTable(3);
                 headerTable.WidthPercentage = 100;
-                headerTable.SetWidths(new float[] { 2, 1 });
+                headerTable.SetWidths(new float[] { 2, 1, 1 });
 
                 // Cột trái: Thông tin đơn vị
                 PdfPCell leftHeaderCell = new PdfPCell();
                 leftHeaderCell.Border = 0;
-                leftHeaderCell.AddElement(new Paragraph("CÔNG TY BÁNH KẸO", headerFont));
+                Paragraph para = new Paragraph();
+                para.Add(new Chunk("Đơn vị: ", boldFont));
+                para.Add(new Chunk(Constants.TEN_CONG_TY, normalFont));
+                leftHeaderCell.AddElement(para);
                 leftHeaderCell.AddElement(new Paragraph("33 Quang Trung, Hồng Bàng, Hải Phòng", normalFont));
                 headerTable.AddCell(leftHeaderCell);
+
+                // Cột giữa: Thông tin Số chứng từ
+                PdfPCell centerHeaderCell = new PdfPCell();
+                centerHeaderCell.Border = 0;
+                centerHeaderCell.AddElement(new Paragraph("Quyển: ", normalFont));
+                centerHeaderCell.AddElement(new Paragraph(row["SoChungTu"].ToString(), normalFont));
+                headerTable.AddCell(centerHeaderCell);
 
                 // Cột phải: Thông tin mẫu phiếu
                 PdfPCell rightHeaderCell = new PdfPCell();
@@ -362,8 +378,8 @@ namespace BanhKeo_Doan.FormVaChucNangNghiepVu.FormVaChucNangPhieuChiTraNCC
                 rightHeaderCell.AddElement(new Paragraph("QĐ số: 19/2006/QĐ-BTC", smallFont));
                 rightHeaderCell.AddElement(new Paragraph("Ngày 30 tháng 3 năm 2006", smallFont));
                 rightHeaderCell.AddElement(new Paragraph("của Bộ trưởng BTC", smallFont));
+                rightHeaderCell.VerticalAlignment = Element.ALIGN_CENTER;
                 headerTable.AddCell(rightHeaderCell);
-
                 document.Add(headerTable);
 
                 // Tiêu đề PHIẾU CHI
@@ -373,7 +389,7 @@ namespace BanhKeo_Doan.FormVaChucNangNghiepVu.FormVaChucNangPhieuChiTraNCC
 
                 // Thêm ngày tháng
                 DateTime ngayLap = Convert.ToDateTime(row["NgayLap"]);
-                Paragraph date = new Paragraph("Ngày " + ngayLap.Day + " tháng " + ngayLap.Month + " năm " + ngayLap.Year, normalFont);
+                Paragraph date = new Paragraph("Ngày " + ngayLap.Day + " tháng " + ngayLap.Month + " năm " + ngayLap.Year, italicFont);
                 date.Alignment = Element.ALIGN_CENTER;
                 document.Add(date);
 
@@ -393,13 +409,27 @@ namespace BanhKeo_Doan.FormVaChucNangNghiepVu.FormVaChucNangPhieuChiTraNCC
 
                 // Số tiền
                 decimal soTien = Convert.ToDecimal(row["SoTien"]);
-                Paragraph soTienPara = new Paragraph("Số tiền: \t" + string.Format("{0:N0}", soTien) + "\t\t(Viết bằng chữ: " + reader.Doc(soTien) + ")", boldFont);
-                document.Add(soTienPara);
+                PdfPTable table = new PdfPTable(2);
+                table.WidthPercentage = 100;
+                table.SetWidths(new float[] { 1.5f, 3.5f }); // tùy chỉnh tỉ lệ
+
+                // Cột trái: Số tiền
+                PdfPCell left = new PdfPCell(new Phrase("Số tiền: " + string.Format("{0:N0}", soTien), boldFont));
+                left.Border = 0;
+                table.AddCell(left);
+
+                // Cột phải: Viết bằng chữ
+                PdfPCell right = new PdfPCell(new Phrase("(Viết bằng chữ: " + reader.Doc(soTien) + ")", italicFont));
+                right.Border = 0;
+                table.AddCell(right);
+
+                document.Add(table);
+
 
                 document.Add(new Paragraph(" ")); // Khoảng trắng
 
                 // Kèm theo chứng từ
-                Paragraph kemTheo = new Paragraph("Kèm theo: " + row["SoChungTu"].ToString() + " chứng từ kế toán", normalFont);
+                Paragraph kemTheo = new Paragraph("Kèm theo: ....................... chứng từ kế toán", normalFont);
                 document.Add(kemTheo);
 
                 document.Add(new Paragraph(" ")); // Khoảng trắng
@@ -419,11 +449,11 @@ namespace BanhKeo_Doan.FormVaChucNangNghiepVu.FormVaChucNangPhieuChiTraNCC
                     cell.Border = 0;
                     cell.HorizontalAlignment = Element.ALIGN_CENTER;
 
-                    Paragraph title1 = new Paragraph(signatureTitles[i], normalFont);
+                    Paragraph title1 = new Paragraph(signatureTitles[i], boldFont);
                     title1.Alignment = Element.ALIGN_CENTER;
                     cell.AddElement(title1);
 
-                    Paragraph note = new Paragraph(signatureNotes[i], smallFont);
+                    Paragraph note = new Paragraph(signatureNotes[i], italicFont);
                     note.Alignment = Element.ALIGN_CENTER;
                     cell.AddElement(note);
 

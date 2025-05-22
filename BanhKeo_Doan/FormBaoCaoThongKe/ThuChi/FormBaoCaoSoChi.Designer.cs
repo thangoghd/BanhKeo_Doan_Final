@@ -56,9 +56,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(243, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(401, 61);
+            this.label1.Size = new System.Drawing.Size(395, 61);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Theo dõi sổ thu";
+            this.label1.Text = "Theo dõi sổ chi";
             // 
             // groupBox1
             // 
@@ -72,14 +72,14 @@
             this.groupBox1.Controls.Add(this.checkBoxDate);
             this.groupBox1.Location = new System.Drawing.Point(18, 87);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(852, 186);
+            this.groupBox1.Size = new System.Drawing.Size(852, 129);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bộ lọc";
             // 
             // btnInButton
             // 
-            this.btnInButton.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnInButton.ImageOptions.SvgImage")));
+            //this.btnInButton.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnInButton.ImageOptions.SvgImage")));
             this.btnInButton.Location = new System.Drawing.Point(140, 71);
             this.btnInButton.Name = "btnInButton";
             this.btnInButton.Size = new System.Drawing.Size(113, 50);
@@ -88,7 +88,7 @@
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTimKiem.ImageOptions.SvgImage")));
+            //this.btnTimKiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTimKiem.ImageOptions.SvgImage")));
             this.btnTimKiem.Location = new System.Drawing.Point(6, 71);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(113, 50);

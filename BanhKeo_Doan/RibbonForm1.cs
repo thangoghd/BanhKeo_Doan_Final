@@ -1,5 +1,6 @@
 ﻿using BanhKeo_Doan.Chuc_nang_nguoi_dung;
 using BanhKeo_Doan.FormBaoCaoThongKe;
+using BanhKeo_Doan.FormBaoCaoThongKe.ThuChi;
 using BanhKeo_Doan.FormNghiepVu;
 using BanhKeo_Doan.FormVaChucNangNghiepVu;
 using BanhKeo_Doan.FormVaChucNangNghiepVu.FormVaChucNangHangTon;
@@ -397,6 +398,18 @@ namespace BanhKeo_Doan
         {
             FormCongNoKH formCongNoKH = new FormCongNoKH();
             formCongNoKH.Show();
+        }
+
+        private void barButtonItem46_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormBaoCaoSoThu formBaoCaoSoThu = new FormBaoCaoSoThu();
+            formBaoCaoSoThu.Show();
+        }
+
+        private void barButtonItem47_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormBaoCaoSoChi formBaoCaoSoChi = new FormBaoCaoSoChi();
+            formBaoCaoSoChi.Show();
         }
     }
 }
